@@ -7,7 +7,7 @@ node {
         	checkout scm
         }
 		
-      	stage ('Deploy') {
+      	stage ('linux_branch') {
             sh "echo 'shell scripts to deploy to server...'"
       	}
     } catch (err) {
