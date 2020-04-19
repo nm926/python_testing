@@ -1,17 +1,7 @@
-node {
- 	// Clean workspace before doing anything
-    deleteDir()
+stage('Deploy') {
+    node {
+        echo 'Pulling...' + env.BRANCH_NAME
+        checkout 'https://github.com/nm926/python_testing.git/'
 
-    try {
-        stage ('Clone') {
-        	checkout scm
-        }
-		
-      	stage ('linux_branch') {
-            sh "echo 'shell scripts to deploy to server...'"
-      	}
-    } catch (err) {
-        currentBuild.result = 'FAILED'
-        throw err
     }
 }
